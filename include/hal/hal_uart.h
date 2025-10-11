@@ -1,16 +1,11 @@
 #pragma once
-#include <cstdint>
 #include <cstddef>
-#include <functional>
+#include <cstdint>
+#include "drivers/uart_driver.h"
+#include "IUart.h"
 
-using uart_callback_t = std::function<void(uint8_t)>;
-
-class IUart {
-public:
-    virtual ~IUart() = default;
-    virtual bool init() = 0;
-    virtual void write(const uint8_t* data, size_t len) = 0;
-    // non-blocking read: returns true if a byte was available
-    virtual bool read(uint8_t &out) = 0;
-    virtual void set_callback(uart_callback_t cb) = 0;
-};
+namespace HAL {
+    void UART_Init(const std::string &dev);
+    void UART_Send(const uint8_t *data, size_t len);
+    uint8_t UART_Read();
+}

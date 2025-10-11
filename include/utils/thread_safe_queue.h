@@ -1,43 +1,38 @@
-#pragma once
+#ifndef THREAD_SAFE_QUEUE_H
+#define THREAD_SAFE_QUEUE_H
+
+#include <queue>
 #include <mutex>
 #include <condition_variable>
-#include <deque>
-#include <chrono>
-#include <optional>
 
-template<typename T>
+template <typename T>
 class ThreadSafeQueue {
-    std::deque<T> q;
-    std::mutex m;
-    std::condition_variable cv;
+private:
+    std::queue<T> queue_;
+    mutable std::mutex mutex_;
+    std::condition_variable cv_;
+
 public:
-    void push(const T& v) {
+    void push(const T& item) {
         {
-            std::lock_guard<std::mutex> lk(m);
-            q.push_back(v);
+            std::lock_guard<std::mutex> lock(mutex_);
+            queue_.push(item);
         }
-        cv.notify_one();
+        cv_.notify_one();
     }
-    // blocking pop
+
     T pop() {
-        std::unique_lock<std::mutex> lk(m);
-        cv.wait(lk, [this]{ return !q.empty(); });
-        T v = std::move(q.front()); q.pop_front();
-        return v;
+        std::unique_lock<std::mutex> lock(mutex_);
+        cv_.wait(lock, [this]{ return !queue_.empty(); });
+        T item = queue_.front();
+        queue_.pop();
+        return item;
     }
-    // try pop with timeout
-    bool pop_for(T& out, std::chrono::milliseconds ms) {
-        std::unique_lock<std::mutex> lk(m);
-        if (!cv.wait_for(lk, ms, [this]{ return !q.empty(); })) return false;
-        out = std::move(q.front()); q.pop_front(); return true;
-    }
-    bool try_pop(T& out) {
-        std::lock_guard<std::mutex> lk(m);
-        if (q.empty()) return false;
-        out = std::move(q.front()); q.pop_front(); return true;
-    }
-    bool empty() {
-        std::lock_guard<std::mutex> lk(m);
-        return q.empty();
+
+    bool empty() const {
+        std::lock_guard<std::mutex> lock(mutex_);
+        return queue_.empty();
     }
 };
+
+#endif // THREAD_SAFE_QUEUE_H

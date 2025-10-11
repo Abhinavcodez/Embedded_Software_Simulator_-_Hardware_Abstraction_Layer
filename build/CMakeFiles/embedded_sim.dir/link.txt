@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o CMakeFiles/embedded_sim.dir/src/app/sensor_task.cpp.o CMakeFiles/embedded_sim.dir/src/hal/hal_manager_stubs.cpp.o CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.o CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.o -o embedded_sim
