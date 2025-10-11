@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include "hal/hal_uart.h"
 #include "hal/hal_gpio.h"
+#include "hal_mocks.h"
 
 TEST(HAL_UART, SendReceive) {
     HAL::UART_Init("test_uart.txt");

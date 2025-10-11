@@ -100,24 +100,10 @@ CMakeFiles/run_tests.dir/tests/test_drivers.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run_tests.dir/tests/test_drivers.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/test_drivers.cpp -o CMakeFiles/run_tests.dir/tests/test_drivers.cpp.s
 
-CMakeFiles/run_tests.dir/tests/test_rtos.cpp.o: CMakeFiles/run_tests.dir/flags.make
-CMakeFiles/run_tests.dir/tests/test_rtos.cpp.o: /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/test_rtos.cpp
-CMakeFiles/run_tests.dir/tests/test_rtos.cpp.o: CMakeFiles/run_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/run_tests.dir/tests/test_rtos.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run_tests.dir/tests/test_rtos.cpp.o -MF CMakeFiles/run_tests.dir/tests/test_rtos.cpp.o.d -o CMakeFiles/run_tests.dir/tests/test_rtos.cpp.o -c /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/test_rtos.cpp
-
-CMakeFiles/run_tests.dir/tests/test_rtos.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run_tests.dir/tests/test_rtos.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/test_rtos.cpp > CMakeFiles/run_tests.dir/tests/test_rtos.cpp.i
-
-CMakeFiles/run_tests.dir/tests/test_rtos.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run_tests.dir/tests/test_rtos.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/test_rtos.cpp -o CMakeFiles/run_tests.dir/tests/test_rtos.cpp.s
-
 CMakeFiles/run_tests.dir/tests/test_integration.cpp.o: CMakeFiles/run_tests.dir/flags.make
 CMakeFiles/run_tests.dir/tests/test_integration.cpp.o: /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/test_integration.cpp
 CMakeFiles/run_tests.dir/tests/test_integration.cpp.o: CMakeFiles/run_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/run_tests.dir/tests/test_integration.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/run_tests.dir/tests/test_integration.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run_tests.dir/tests/test_integration.cpp.o -MF CMakeFiles/run_tests.dir/tests/test_integration.cpp.o.d -o CMakeFiles/run_tests.dir/tests/test_integration.cpp.o -c /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/test_integration.cpp
 
 CMakeFiles/run_tests.dir/tests/test_integration.cpp.i: cmake_force
@@ -131,7 +117,7 @@ CMakeFiles/run_tests.dir/tests/test_integration.cpp.s: cmake_force
 CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.o: CMakeFiles/run_tests.dir/flags.make
 CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.o: /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/sensor_task.cpp
 CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.o: CMakeFiles/run_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.o -MF CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.o.d -o CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.o -c /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/sensor_task.cpp
 
 CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.i: cmake_force
@@ -145,7 +131,7 @@ CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.s: cmake_force
 CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.o: CMakeFiles/run_tests.dir/flags.make
 CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.o: /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/hal_manager_stubs.cpp
 CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.o: CMakeFiles/run_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.o -MF CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.o.d -o CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.o -c /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/hal_manager_stubs.cpp
 
 CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.i: cmake_force
@@ -156,61 +142,27 @@ CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/hal_manager_stubs.cpp -o CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.s
 
-CMakeFiles/run_tests.dir/src/hal/hal.cpp.o: CMakeFiles/run_tests.dir/flags.make
-CMakeFiles/run_tests.dir/src/hal/hal.cpp.o: /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/hal.cpp
-CMakeFiles/run_tests.dir/src/hal/hal.cpp.o: CMakeFiles/run_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/run_tests.dir/src/hal/hal.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run_tests.dir/src/hal/hal.cpp.o -MF CMakeFiles/run_tests.dir/src/hal/hal.cpp.o.d -o CMakeFiles/run_tests.dir/src/hal/hal.cpp.o -c /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/hal.cpp
-
-CMakeFiles/run_tests.dir/src/hal/hal.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run_tests.dir/src/hal/hal.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/hal.cpp > CMakeFiles/run_tests.dir/src/hal/hal.cpp.i
-
-CMakeFiles/run_tests.dir/src/hal/hal.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run_tests.dir/src/hal/hal.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/hal.cpp -o CMakeFiles/run_tests.dir/src/hal/hal.cpp.s
-
-CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.o: CMakeFiles/run_tests.dir/flags.make
-CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.o: /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/rtos/rtos_stubs.cpp
-CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.o: CMakeFiles/run_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.o -MF CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.o.d -o CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.o -c /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/rtos/rtos_stubs.cpp
-
-CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/rtos/rtos_stubs.cpp > CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.i
-
-CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/rtos/rtos_stubs.cpp -o CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.s
-
 # Object files for target run_tests
 run_tests_OBJECTS = \
 "CMakeFiles/run_tests.dir/tests/test_hal.cpp.o" \
 "CMakeFiles/run_tests.dir/tests/test_drivers.cpp.o" \
-"CMakeFiles/run_tests.dir/tests/test_rtos.cpp.o" \
 "CMakeFiles/run_tests.dir/tests/test_integration.cpp.o" \
 "CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.o" \
-"CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.o" \
-"CMakeFiles/run_tests.dir/src/hal/hal.cpp.o" \
-"CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.o"
+"CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.o"
 
 # External object files for target run_tests
 run_tests_EXTERNAL_OBJECTS =
 
 run_tests: CMakeFiles/run_tests.dir/tests/test_hal.cpp.o
 run_tests: CMakeFiles/run_tests.dir/tests/test_drivers.cpp.o
-run_tests: CMakeFiles/run_tests.dir/tests/test_rtos.cpp.o
 run_tests: CMakeFiles/run_tests.dir/tests/test_integration.cpp.o
 run_tests: CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.o
 run_tests: CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.o
-run_tests: CMakeFiles/run_tests.dir/src/hal/hal.cpp.o
-run_tests: CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.o
 run_tests: CMakeFiles/run_tests.dir/build.make
 run_tests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
 run_tests: /usr/lib/x86_64-linux-gnu/libgtest.a
 run_tests: CMakeFiles/run_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable run_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable run_tests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/run_tests.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

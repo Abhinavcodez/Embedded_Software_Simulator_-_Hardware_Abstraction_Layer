@@ -5,34 +5,39 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # -------------------- Include directories --------------------
-include_directories(${PROJECT_SOURCE_DIR}/include)
+include_directories(
+    ${PROJECT_SOURCE_DIR}/include
+)
 
 # -------------------- Source files --------------------
 set(SRC_APP
     src/app/app_main.cpp
     src/app/sensor_task.cpp
     src/hal/hal_manager_stubs.cpp
-    src/hal/hal.cpp       # <- add hal.cpp here
-    src/rtos/rtos_stubs.cpp
 )
 
 set(TEST_SRC
     tests/test_hal.cpp
     tests/test_drivers.cpp
-    tests/test_rtos.cpp
     tests/test_integration.cpp
     src/app/sensor_task.cpp
     src/hal/hal_manager_stubs.cpp
-    src/hal/hal.cpp       # <- also include HAL.cpp here
-    src/rtos/rtos_stubs.cpp
 )
 
-# -------------------- Executables --------------------
+# -------------------- Executable --------------------
 add_executable(embedded_sim ${SRC_APP})
-add_executable(run_tests ${TEST_SRC})
 
 # -------------------- GTest setup --------------------
 find_package(GTest REQUIRED)
+if(GTEST_FOUND)
+    message(STATUS "Found GTest: ${GTEST_INCLUDE_DIR}")
+else()
+    message(FATAL_ERROR "GTest not found!")
+endif()
+
+# -------------------- Test executable --------------------
+add_executable(run_tests ${TEST_SRC})
+
 target_include_directories(run_tests PRIVATE ${GTEST_INCLUDE_DIRS})
 target_link_libraries(run_tests PRIVATE GTest::GTest GTest::Main pthread)
 

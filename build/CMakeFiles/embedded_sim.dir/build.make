@@ -114,41 +114,11 @@ CMakeFiles/embedded_sim.dir/src/hal/hal_manager_stubs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/embedded_sim.dir/src/hal/hal_manager_stubs.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/hal_manager_stubs.cpp -o CMakeFiles/embedded_sim.dir/src/hal/hal_manager_stubs.cpp.s
 
-CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.o: CMakeFiles/embedded_sim.dir/flags.make
-CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.o: /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/hal.cpp
-CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.o: CMakeFiles/embedded_sim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.o -MF CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.o.d -o CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.o -c /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/hal.cpp
-
-CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/hal.cpp > CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.i
-
-CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/hal.cpp -o CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.s
-
-CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.o: CMakeFiles/embedded_sim.dir/flags.make
-CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.o: /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/rtos/rtos_stubs.cpp
-CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.o: CMakeFiles/embedded_sim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.o -MF CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.o.d -o CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.o -c /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/rtos/rtos_stubs.cpp
-
-CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/rtos/rtos_stubs.cpp > CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.i
-
-CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/rtos/rtos_stubs.cpp -o CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.s
-
 # Object files for target embedded_sim
 embedded_sim_OBJECTS = \
 "CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o" \
 "CMakeFiles/embedded_sim.dir/src/app/sensor_task.cpp.o" \
-"CMakeFiles/embedded_sim.dir/src/hal/hal_manager_stubs.cpp.o" \
-"CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.o" \
-"CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.o"
+"CMakeFiles/embedded_sim.dir/src/hal/hal_manager_stubs.cpp.o"
 
 # External object files for target embedded_sim
 embedded_sim_EXTERNAL_OBJECTS =
@@ -156,11 +126,9 @@ embedded_sim_EXTERNAL_OBJECTS =
 embedded_sim: CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o
 embedded_sim: CMakeFiles/embedded_sim.dir/src/app/sensor_task.cpp.o
 embedded_sim: CMakeFiles/embedded_sim.dir/src/hal/hal_manager_stubs.cpp.o
-embedded_sim: CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.o
-embedded_sim: CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.o
 embedded_sim: CMakeFiles/embedded_sim.dir/build.make
 embedded_sim: CMakeFiles/embedded_sim.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable embedded_sim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable embedded_sim"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/embedded_sim.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

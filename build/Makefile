@@ -193,33 +193,6 @@ src/app/sensor_task.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.s
 .PHONY : src/app/sensor_task.cpp.s
 
-src/hal/hal.o: src/hal/hal.cpp.o
-.PHONY : src/hal/hal.o
-
-# target to build an object file
-src/hal/hal.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/hal/hal.cpp.o
-.PHONY : src/hal/hal.cpp.o
-
-src/hal/hal.i: src/hal/hal.cpp.i
-.PHONY : src/hal/hal.i
-
-# target to preprocess a source file
-src/hal/hal.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/hal/hal.cpp.i
-.PHONY : src/hal/hal.cpp.i
-
-src/hal/hal.s: src/hal/hal.cpp.s
-.PHONY : src/hal/hal.s
-
-# target to generate assembly for a file
-src/hal/hal.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/hal/hal.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/hal/hal.cpp.s
-.PHONY : src/hal/hal.cpp.s
-
 src/hal/hal_manager_stubs.o: src/hal/hal_manager_stubs.cpp.o
 .PHONY : src/hal/hal_manager_stubs.o
 
@@ -246,33 +219,6 @@ src/hal/hal_manager_stubs.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/hal/hal_manager_stubs.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.s
 .PHONY : src/hal/hal_manager_stubs.cpp.s
-
-src/rtos/rtos_stubs.o: src/rtos/rtos_stubs.cpp.o
-.PHONY : src/rtos/rtos_stubs.o
-
-# target to build an object file
-src/rtos/rtos_stubs.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.o
-.PHONY : src/rtos/rtos_stubs.cpp.o
-
-src/rtos/rtos_stubs.i: src/rtos/rtos_stubs.cpp.i
-.PHONY : src/rtos/rtos_stubs.i
-
-# target to preprocess a source file
-src/rtos/rtos_stubs.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.i
-.PHONY : src/rtos/rtos_stubs.cpp.i
-
-src/rtos/rtos_stubs.s: src/rtos/rtos_stubs.cpp.s
-.PHONY : src/rtos/rtos_stubs.s
-
-# target to generate assembly for a file
-src/rtos/rtos_stubs.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/rtos/rtos_stubs.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/rtos/rtos_stubs.cpp.s
-.PHONY : src/rtos/rtos_stubs.cpp.s
 
 tests/test_drivers.o: tests/test_drivers.cpp.o
 .PHONY : tests/test_drivers.o
@@ -346,30 +292,6 @@ tests/test_integration.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_integration.cpp.s
 .PHONY : tests/test_integration.cpp.s
 
-tests/test_rtos.o: tests/test_rtos.cpp.o
-.PHONY : tests/test_rtos.o
-
-# target to build an object file
-tests/test_rtos.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_rtos.cpp.o
-.PHONY : tests/test_rtos.cpp.o
-
-tests/test_rtos.i: tests/test_rtos.cpp.i
-.PHONY : tests/test_rtos.i
-
-# target to preprocess a source file
-tests/test_rtos.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_rtos.cpp.i
-.PHONY : tests/test_rtos.cpp.i
-
-tests/test_rtos.s: tests/test_rtos.cpp.s
-.PHONY : tests/test_rtos.s
-
-# target to generate assembly for a file
-tests/test_rtos.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_rtos.cpp.s
-.PHONY : tests/test_rtos.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -386,15 +308,9 @@ help:
 	@echo "... src/app/sensor_task.o"
 	@echo "... src/app/sensor_task.i"
 	@echo "... src/app/sensor_task.s"
-	@echo "... src/hal/hal.o"
-	@echo "... src/hal/hal.i"
-	@echo "... src/hal/hal.s"
 	@echo "... src/hal/hal_manager_stubs.o"
 	@echo "... src/hal/hal_manager_stubs.i"
 	@echo "... src/hal/hal_manager_stubs.s"
-	@echo "... src/rtos/rtos_stubs.o"
-	@echo "... src/rtos/rtos_stubs.i"
-	@echo "... src/rtos/rtos_stubs.s"
 	@echo "... tests/test_drivers.o"
 	@echo "... tests/test_drivers.i"
 	@echo "... tests/test_drivers.s"
@@ -404,9 +320,6 @@ help:
 	@echo "... tests/test_integration.o"
 	@echo "... tests/test_integration.i"
 	@echo "... tests/test_integration.s"
-	@echo "... tests/test_rtos.o"
-	@echo "... tests/test_rtos.i"
-	@echo "... tests/test_rtos.s"
 .PHONY : help
 
 
