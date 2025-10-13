@@ -1,5 +1,5 @@
-CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o: \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/app_main.cpp \
+CMakeFiles/run_tests.dir/src/hal/rtos_sim.cpp.o: \
+ /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/rtos_sim.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -156,41 +156,35 @@ CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o: \
  /usr/include/c++/11/ctime /usr/include/c++/11/bits/parse_numbers.h \
  /usr/include/c++/11/atomic /usr/include/c++/11/bits/atomic_base.h \
  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
- /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_uninitialized.h \
- /usr/include/c++/11/bits/stl_tempbuf.h \
- /usr/include/c++/11/bits/stl_raw_storage_iter.h \
- /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
- /usr/include/c++/11/bits/shared_ptr.h \
- /usr/include/c++/11/bits/shared_ptr_base.h \
- /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/functional /usr/include/c++/11/bits/std_function.h \
+ /usr/include/c++/11/unordered_map \
  /usr/include/c++/11/ext/aligned_buffer.h \
- /usr/include/c++/11/ext/concurrence.h \
- /usr/include/c++/11/bits/shared_ptr_atomic.h \
- /usr/include/c++/11/backward/auto_ptr.h \
- /usr/include/c++/11/pstl/glue_memory_defs.h \
- /usr/include/c++/11/pstl/execution_defs.h \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/../../include/hal/hal_manager.h \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/../../include/hal/IUart.h \
- /usr/include/c++/11/cstddef \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/../../include/hal/IGpio.h \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/../../include/hal/hal_manager_stubs.h \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/../../include/hal/virtual_uart.h \
- /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_vector.h \
- /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/queue \
- /usr/include/c++/11/deque /usr/include/c++/11/bits/stl_deque.h \
- /usr/include/c++/11/bits/deque.tcc /usr/include/c++/11/bits/stl_heap.h \
- /usr/include/c++/11/bits/stl_queue.h /usr/include/c++/11/mutex \
- /usr/include/c++/11/bits/std_mutex.h \
- /usr/include/c++/11/bits/unique_lock.h \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/../../include/hal/virtual_gpio.h \
- /usr/include/c++/11/unordered_map /usr/include/c++/11/bits/hashtable.h \
+ /usr/include/c++/11/bits/hashtable.h \
  /usr/include/c++/11/bits/hashtable_policy.h \
  /usr/include/c++/11/bits/enable_special_members.h \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/unordered_map.h \
- /usr/include/c++/11/bits/erase_if.h \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/../../include/app/sensor_task.h \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/../../include/app/../utils/thread_safe_queue.h \
+ /usr/include/c++/11/bits/erase_if.h /usr/include/c++/11/vector \
+ /usr/include/c++/11/bits/stl_uninitialized.h \
+ /usr/include/c++/11/bits/stl_vector.h \
+ /usr/include/c++/11/bits/stl_bvector.h \
+ /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/bits/stl_algo.h \
+ /usr/include/c++/11/bits/algorithmfwd.h \
+ /usr/include/c++/11/bits/stl_heap.h \
+ /usr/include/c++/11/bits/stl_tempbuf.h \
+ /usr/include/c++/11/bits/uniform_int_dist.h \
+ /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/../../include/hal/rtos_sim.h \
+ /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/../../include/app/sensor_task.h \
+ /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/../../include/app/../utils/thread_safe_queue.h \
+ /usr/include/c++/11/queue /usr/include/c++/11/deque \
+ /usr/include/c++/11/bits/stl_deque.h /usr/include/c++/11/bits/deque.tcc \
+ /usr/include/c++/11/bits/stl_queue.h /usr/include/c++/11/mutex \
+ /usr/include/c++/11/bits/std_mutex.h \
+ /usr/include/c++/11/bits/unique_lock.h \
  /usr/include/c++/11/condition_variable \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/../../include/utils/thread_safe_queue.h
+ /usr/include/c++/11/bits/shared_ptr.h \
+ /usr/include/c++/11/bits/shared_ptr_base.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/ext/concurrence.h /usr/include/c++/11/optional \
+ /usr/include/c++/11/cstddef \
+ /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/../../include/utils/thread_safe_queue.h

@@ -192,6 +192,9 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Enable RTOS simulation in HAL
+ENABLE_RTOS:BOOL=OFF
+
 //Value Computed by CMake
 EmbeddedSimulator_BINARY_DIR:STATIC=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build
 
@@ -203,6 +206,9 @@ EmbeddedSimulator_SOURCE_DIR:STATIC=/home/chilgoja/Desktop/Embedded_Project/Embe
 
 //The directory containing a CMake configuration file for GTest.
 GTest_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/GTest
+
+//Enable RTOS simulation
+USE_RTOS:BOOL=OFF
 
 
 ########################
@@ -247,8 +253,6 @@ CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_DLLTOOL
 CMAKE_DLLTOOL-ADVANCED:INTERNAL=1
-//Path to cache edit program executable.
-CMAKE_EDIT_COMMAND:INTERNAL=/usr/bin/ccmake
 //Executable file format
 CMAKE_EXECUTABLE_FORMAT:INTERNAL=ELF
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS

@@ -1,20 +1,20 @@
 #include "../../include/hal/IUart.h"
-#include "../../include/hal/IGpio.h"
+#include <iostream>
 
-class VirtualUart : public IUart {
+class VirtualUART : public IUart {
 public:
     void send(const char* data, int length) override {
-        // simulate sending
+        std::cout << "[UART] Send: ";
+        for(int i=0;i<length;++i) std::cout << std::hex << (int)data[i] << " ";
+        std::cout << std::endl;
     }
+
     int receive(char* buffer, int length) override {
-        return 0; // simulate receiving
+        std::cout << "[UART] Receive called" << std::endl;
+        return 0;
     }
 };
 
-IUart* get_virtual_uart() {
-    return new VirtualUart();
-}
-
-IGpio* get_virtual_gpio() {
-    return nullptr;
+std::unique_ptr<IUart> get_virtual_uart() {
+    return std::make_unique<VirtualUART>();
 }

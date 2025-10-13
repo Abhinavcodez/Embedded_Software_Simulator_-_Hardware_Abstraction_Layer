@@ -1,44 +1,39 @@
-#include <iostream>
-#include <thread>
-#include <atomic>
+#include <thread>       // for std::thread
+#include <chrono>       // for std::chrono
+#include <atomic>       // for std::atomic
 #include <memory>
+#include <iostream>
 #include <string>
-#include "../../include/hal/hal_manager.h"
-#include "../../include/hal/IUart.h"
-#include "../../include/hal/IGpio.h"
-#include "../../include/app/sensor_task.h"
-#include "../../include/utils/thread_safe_queue.h"
-#include <atomic>
-#include <thread>
-#include "../../include/utils/thread_safe_queue.h"
-#include "../../include/app/sensor_manager.h"
+#include "../include/app/sensor_task.h"
+#include "../include/utils/thread_safe_queue.h"
+#include "../include/hal/hal_manager.h"
+#include "../include/hal/IGpio.h"
+#include "../include/hal/IUart.h"
+
+#ifdef USE_RTOS
+#include "../include/hal/rtos_sim.h"
+#endif
 
 
-// Example sensor data structure
-struct SensorSample {
-    int id;
-    float value;
-};
+ThreadSafeQueue<SensorSample> sensor_q;
+ThreadSafeQueue<std::string> log_q;
 
 // Processing task
 void processing_task(ThreadSafeQueue<SensorSample>& inq,
                      ThreadSafeQueue<std::string>& outq,
                      std::atomic<bool>& running) {
     while (running.load()) {
-        SensorSample sample;
-        if (inq.pop(sample)) {
-            outq.push("Sensor ID: " + std::to_string(sample.id) + " Value: " + std::to_string(sample.value));
-        }
+        SensorSample sample = inq.pop();
+        outq.push("Sensor ID: " + std::to_string(sample.id) +
+                  " Value: " + std::to_string(sample.value));
     }
 }
 
 // Logger task
 void logger_task(ThreadSafeQueue<std::string>& q, std::atomic<bool>& running) {
     while (running.load()) {
-        std::string line;
-        if (q.pop(line)) {
-            std::cout << "[LOG] " << line << std::endl;
-        }
+        std::string line = q.pop();
+        std::cout << "[LOG] " << line << std::endl;
     }
 }
 
@@ -50,57 +45,51 @@ void cli_task(IUart* uart, ThreadSafeQueue<std::string>& logger_q, std::atomic<b
     }
 }
 
-// Virtual UART/GPIO factories
-std::unique_ptr<IUart> create_virtual_uart(const std::string& path, bool loopback) {
-    class VirtualUART : public IUart {
-    public:
-        bool init() override { return true; }
-        bool write(const uint8_t* data, size_t len) override { return true; }
-        bool read(uint8_t* data, size_t len) override { return true; }
-    };
-    return std::make_unique<VirtualUART>();
-}
+// Virtual UART/GPIO
+class VirtualUART : public IUart {
+public:
+    bool init() { return true; }
+    void send(const char* data, int length) override {}
+    int receive(char* buffer, int length) override { return 0; }
+};
 
-std::unique_ptr<IGpio> create_virtual_gpio(size_t pins) {
-    class VirtualGPIO : public IGpio {
-    public:
-        void init() override {}
-        void write_pin(uint8_t pin, bool value) override {}
-        bool read_pin(uint8_t pin) override { return false; }
-    };
-    return std::make_unique<VirtualGPIO>();
-}
+class VirtualGPIO : public IGpio {
+public:
+    void init() {}
+    void write(int pin, bool value) override {}
+    bool read(int pin) override { return false; }
+};
 
-int main(int argc, char** argv) {
+int main() {
     std::atomic<bool> running(true);
 
-    // Queues for inter-task communication
-    ThreadSafeQueue<SensorSample> sensor_q;
-    ThreadSafeQueue<std::string> log_q;
+    auto uart = std::make_unique<VirtualUART>();
+    auto gpio = std::make_unique<VirtualGPIO>();
 
-    // Create virtual HAL interfaces
-    auto uart = create_virtual_uart("/tmp/virtual_uart.log", true);
-    auto gpio = create_virtual_gpio(8);
-
-    // Register virtual devices with HAL manager
     HalManager::instance().register_uart(std::move(uart));
     HalManager::instance().register_gpio(std::move(gpio));
 
-    // Launch tasks
-    std::thread tsensor(sensor_task); // sensor_task() from app/sensor_task.h
-    std::thread tproc(processing_task, std::ref(sensor_q), std::ref(log_q), std::ref(running));
-    std::thread tlogger(logger_task, std::ref(log_q), std::ref(running));
-    std::thread tcli(cli_task, HalManager::instance().uart(), std::ref(log_q), std::ref(running));
+#ifdef USE_RTOS
+RTOS::create_task([&]() { sensor_task(sensor_q, running); });
+RTOS::create_task([&]() { processing_task(sensor_q, log_q, running); });
+RTOS::create_task([&]() { logger_task(log_q, running); });
+RTOS::create_task([&]() { cli_task(HalManager::instance().uart(), log_q, running); });
+RTOS::start_scheduler();
+RTOS::delay_ms(5000);
+#else
+// HAL-only threading
+std::thread tsensor(sensor_task, std::ref(sensor_q), std::ref(running));
+std::thread tproc(processing_task, std::ref(sensor_q), std::ref(log_q), std::ref(running));
+std::thread tlogger(logger_task, std::ref(log_q), std::ref(running));
+std::thread tcli(cli_task, HalManager::instance().uart(), std::ref(log_q), std::ref(running));
 
-    // Run simulation for a fixed period
-    std::this_thread::sleep_for(std::chrono::seconds(5));
-    running = false;
+std::this_thread::sleep_for(std::chrono::seconds(5));
 
-    // Join threads
-    tsensor.join();
-    tproc.join();
-    tlogger.join();
-    tcli.join();
+tsensor.join();
+tproc.join();
+tlogger.join();
+tcli.join();
+#endif
 
     std::cout << "[MAIN] Simulation finished." << std::endl;
     return 0;

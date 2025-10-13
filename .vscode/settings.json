@@ -6,6 +6,15 @@
         "atomic": "cpp",
         "mutex": "cpp",
         "__mutex_base": "cpp",
-        "memory": "cpp"
+        "memory": "cpp",
+        "array": "cpp",
+        "istream": "cpp",
+        "functional": "cpp",
+        "tuple": "cpp",
+        "utility": "cpp",
+        "variant": "cpp",
+        "__functional_base": "cpp",
+        "locale": "cpp",
+        "ranges": "cpp"
     }
 }

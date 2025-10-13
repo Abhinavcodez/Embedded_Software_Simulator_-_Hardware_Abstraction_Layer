@@ -156,8 +156,9 @@ CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.o: \
  /usr/include/c++/11/bits/allocated_ptr.h \
  /usr/include/c++/11/bits/refwrap.h /usr/include/c++/11/bits/unique_ptr.h \
  /usr/include/c++/11/ext/aligned_buffer.h \
- /usr/include/c++/11/ext/concurrence.h /usr/include/c++/11/atomic \
- /usr/include/c++/11/bits/atomic_base.h \
+ /usr/include/c++/11/ext/concurrence.h /usr/include/c++/11/optional \
+ /usr/include/c++/11/bits/enable_special_members.h \
+ /usr/include/c++/11/atomic /usr/include/c++/11/bits/atomic_base.h \
  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
  /usr/include/c++/11/cstddef /usr/include/c++/11/thread \
  /usr/include/c++/11/bits/std_thread.h \

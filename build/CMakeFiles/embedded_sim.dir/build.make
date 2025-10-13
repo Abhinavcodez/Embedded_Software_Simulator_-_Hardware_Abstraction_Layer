@@ -72,19 +72,19 @@ include CMakeFiles/embedded_sim.dir/flags.make
 CMakeFiles/embedded_sim.dir/codegen:
 .PHONY : CMakeFiles/embedded_sim.dir/codegen
 
-CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o: CMakeFiles/embedded_sim.dir/flags.make
-CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o: /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/app_main.cpp
-CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o: CMakeFiles/embedded_sim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o -MF CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o.d -o CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o -c /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/app_main.cpp
+CMakeFiles/embedded_sim.dir/src/main.cpp.o: CMakeFiles/embedded_sim.dir/flags.make
+CMakeFiles/embedded_sim.dir/src/main.cpp.o: /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/main.cpp
+CMakeFiles/embedded_sim.dir/src/main.cpp.o: CMakeFiles/embedded_sim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/embedded_sim.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/embedded_sim.dir/src/main.cpp.o -MF CMakeFiles/embedded_sim.dir/src/main.cpp.o.d -o CMakeFiles/embedded_sim.dir/src/main.cpp.o -c /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/main.cpp
 
-CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/app_main.cpp > CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.i
+CMakeFiles/embedded_sim.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/embedded_sim.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/main.cpp > CMakeFiles/embedded_sim.dir/src/main.cpp.i
 
-CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/app_main.cpp -o CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.s
+CMakeFiles/embedded_sim.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/embedded_sim.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/main.cpp -o CMakeFiles/embedded_sim.dir/src/main.cpp.s
 
 CMakeFiles/embedded_sim.dir/src/app/sensor_task.cpp.o: CMakeFiles/embedded_sim.dir/flags.make
 CMakeFiles/embedded_sim.dir/src/app/sensor_task.cpp.o: /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/sensor_task.cpp
@@ -116,14 +116,14 @@ CMakeFiles/embedded_sim.dir/src/hal/hal_manager_stubs.cpp.s: cmake_force
 
 # Object files for target embedded_sim
 embedded_sim_OBJECTS = \
-"CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o" \
+"CMakeFiles/embedded_sim.dir/src/main.cpp.o" \
 "CMakeFiles/embedded_sim.dir/src/app/sensor_task.cpp.o" \
 "CMakeFiles/embedded_sim.dir/src/hal/hal_manager_stubs.cpp.o"
 
 # External object files for target embedded_sim
 embedded_sim_EXTERNAL_OBJECTS =
 
-embedded_sim: CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o
+embedded_sim: CMakeFiles/embedded_sim.dir/src/main.cpp.o
 embedded_sim: CMakeFiles/embedded_sim.dir/src/app/sensor_task.cpp.o
 embedded_sim: CMakeFiles/embedded_sim.dir/src/hal/hal_manager_stubs.cpp.o
 embedded_sim: CMakeFiles/embedded_sim.dir/build.make

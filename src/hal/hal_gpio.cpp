@@ -1,11 +1,18 @@
 #include "hal/hal_gpio.h"
+#include <iostream>
 
-static gpio_driver_t *drv = nullptr;
+class VirtualGPIO : public IGpio {
+public:
+    void write(int pin, bool value) override {
+        std::cout << "[GPIO] Pin " << pin << " = " << value << std::endl;
+    }
 
-void HAL::GPIO_Init(uint8_t pin, gpio_dir_t dir) {
-    drv = get_virtual_gpio();
-    drv->init(pin, dir);
+    bool read(int pin) override {
+        std::cout << "[GPIO] Read pin " << pin << std::endl;
+        return false;
+    }
+};
+
+std::unique_ptr<IGpio> get_virtual_gpio() {
+    return std::make_unique<VirtualGPIO>();
 }
-
-void HAL::GPIO_Write(uint8_t pin, gpio_state_t state) { drv->write(pin, state); }
-gpio_state_t HAL::GPIO_Read(uint8_t pin) { return drv->read(pin); }

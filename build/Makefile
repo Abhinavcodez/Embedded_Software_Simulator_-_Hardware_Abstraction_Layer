@@ -67,8 +67,8 @@ CMAKE_BINARY_DIR = /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Sim
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -142,30 +142,6 @@ run_tests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
 .PHONY : run_tests/fast
 
-src/app/app_main.o: src/app/app_main.cpp.o
-.PHONY : src/app/app_main.o
-
-# target to build an object file
-src/app/app_main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.o
-.PHONY : src/app/app_main.cpp.o
-
-src/app/app_main.i: src/app/app_main.cpp.i
-.PHONY : src/app/app_main.i
-
-# target to preprocess a source file
-src/app/app_main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.i
-.PHONY : src/app/app_main.cpp.i
-
-src/app/app_main.s: src/app/app_main.cpp.s
-.PHONY : src/app/app_main.s
-
-# target to generate assembly for a file
-src/app/app_main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/app/app_main.cpp.s
-.PHONY : src/app/app_main.cpp.s
-
 src/app/sensor_task.o: src/app/sensor_task.cpp.o
 .PHONY : src/app/sensor_task.o
 
@@ -219,6 +195,30 @@ src/hal/hal_manager_stubs.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/hal/hal_manager_stubs.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.s
 .PHONY : src/hal/hal_manager_stubs.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 tests/test_drivers.o: tests/test_drivers.cpp.o
 .PHONY : tests/test_drivers.o
@@ -302,15 +302,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... embedded_sim"
 	@echo "... run_tests"
-	@echo "... src/app/app_main.o"
-	@echo "... src/app/app_main.i"
-	@echo "... src/app/app_main.s"
 	@echo "... src/app/sensor_task.o"
 	@echo "... src/app/sensor_task.i"
 	@echo "... src/app/sensor_task.s"
 	@echo "... src/hal/hal_manager_stubs.o"
 	@echo "... src/hal/hal_manager_stubs.i"
 	@echo "... src/hal/hal_manager_stubs.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 	@echo "... tests/test_drivers.o"
 	@echo "... tests/test_drivers.i"
 	@echo "... tests/test_drivers.s"
