@@ -6,14 +6,27 @@
 
 ## 📘 Overview
 
-The **Embedded Software Simulator – Hardware Abstraction Layer (HAL)** is a software-only simulation framework designed for embedded systems development. It provides a virtualized environment to test and develop embedded applications without the need for physical hardware. This approach is particularly useful for early-stage development, unit testing, and educational purposes.
+The **Embedded Software Simulator – Hardware Abstraction Layer (HAL)** is a **C++17-based embedded simulation framework** that provides a **virtual environment for firmware testing** — without physical boards or drivers.
+It now supports **dual-mode execution**:
 
-**Key Features:**
+* **HAL-only mode:** Uses native C++ threads for simulation.
+* **HAL + RTOS mode:** Uses an internal RTOS-like task scheduler (`rtos_sim`) for cooperative task simulation.
 
-* **Virtual Peripherals:** Simulate hardware components like UART, GPIO, and timers.
-* **Modular HAL:** Easily extendable to add new virtual peripherals.
-* **RTOS Simulation:** Optionally simulate real-time operating system tasks and scheduling.
-* **Unit & Integration Testing:** Built-in support for testing application logic and HAL interactions.
+This project is ideal for:
+
+* Embedded developers prototyping without target hardware
+* Unit testing embedded logic
+* Educational use in RTOS & HAL design
+
+---
+
+## 🚀 Key Features
+
+* 🧱 **Virtualized Peripherals:** UART, GPIO, and easy extension for more
+* ⚙️ **RTOS Simulation Layer:** Optional lightweight scheduler and task model
+* 🧩 **ThreadSafe Queues:** Safe inter-task communication
+* 🧪 **Built-in GTest Suite:** Unit and integration tests
+* 🔄 **Toggle Between Modes:** Compile-time option `USE_RTOS` in CMake
 
 ---
 
@@ -22,16 +35,18 @@ The **Embedded Software Simulator – Hardware Abstraction Layer (HAL)** is a so
 ```
 Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/
 ├── include/
-│   ├── hal/             # HAL interfaces (IUart.h, IGpio.h, HAL Manager)
-│   ├── app/             # Application headers (sensor tasks, queues)
-│   └── utils/           # Utilities
+│   ├── app/               # Application-level headers (sensor_task, etc.)
+│   ├── hal/               # HAL interfaces and manager (IUart, IGpio, HalManager, rtos_sim.h)
+│   └── utils/             # Shared utilities (ThreadSafeQueue)
+│
 ├── src/
-│   ├── hal/             # HAL stubs & virtual drivers
-│   ├── app/             # Application logic
-│   └── rtos/            # Optional RTOS stubs (can be removed)
-├── tests/               # Google Test unit tests
-├── CMakeLists.txt       # Build configuration
-└── README.md            # Project documentation
+│   ├── app/               # Application logic implementations
+│   ├── hal/               # HAL stubs and virtual hardware (hal_manager_stubs.cpp)
+│   └── main.cpp           # Entry point – dual-mode (HAL or HAL+RTOS)
+│
+├── tests/                 # Google Test unit/integration tests
+├── CMakeLists.txt         # Build system (CMake ≥ 3.10)
+└── README.md              # Project documentation
 ```
 
 ---
@@ -42,7 +57,7 @@ Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/
 * **CMake ≥ 3.10**
 * **Google Test (GTest)**
 
-To install GTest on Ubuntu:
+### 🧩 Install GTest (Ubuntu)
 
 ```bash
 sudo apt update
@@ -72,12 +87,16 @@ mkdir build && cd build
 ```bash
 cmake -DUSE_RTOS=OFF ..
 make -j$(nproc)
+./embedded_sim
 ```
 
-**Executables:**
+#### ⚙️ HAL + RTOS Simulation
 
-* `embedded_sim` → Runs the main application simulation
-* `run_tests` → Runs all unit and integration tests
+```bash
+cmake -DUSE_RTOS=ON ..
+make -j$(nproc)
+./embedded_sim
+```
 
 ---
 
@@ -92,38 +111,82 @@ make -j$(nproc)
 ```
 [==========] Running 8 tests from 6 test suites.
 [ RUN      ] HAL_UART.SendReceive
-[Mock HAL] UART_Init called for port: test_uart.txt
-[Mock HAL] UART_Send called with length: 2
+[Mock HAL] UART_Init called
+[Mock HAL] UART_Send called with length: 5
 [       OK ] HAL_UART.SendReceive
 [ RUN      ] HAL_GPIO.PinWriteRead
-[Mock HAL] GPIO pin 3 written HIGH
-[Mock HAL] GPIO pin 3 read HIGH
+[Mock HAL] GPIO pin 4 written HIGH
+[Mock HAL] GPIO pin 4 read HIGH
 [       OK ] HAL_GPIO.PinWriteRead
 ...
-[==========] 8 tests from 6 test suites ran. (0 ms total)
+[==========] 8 tests from 6 test suites ran. (3 ms total)
 ```
 
-> ⚠ Segmentation faults usually indicate missing virtual peripheral mocks or test misconfigurations.
+> ⚠️ If any test fails, ensure your virtual peripheral stubs are properly registered in `hal_manager_stubs.cpp`.
+
+---
+
+## 💡 Switching Between HAL and RTOS
+
+The simulation mode is **compile-time controlled** through the CMake option `USE_RTOS`:
+
+| Mode       | Description                                          | Command                   |
+| ---------- | ---------------------------------------------------- | ------------------------- |
+| HAL-only   | Uses standard C++ threads                            | `cmake -DUSE_RTOS=OFF ..` |
+| HAL + RTOS | Uses simulated scheduler (`RTOS::create_task`, etc.) | `cmake -DUSE_RTOS=ON ..`  |
+
+At runtime, both execute the same logic but through different threading/scheduling backends.
 
 ---
 
 ## 🧩 Adding New Virtual Peripherals
 
-1. Create an interface in `include/hal/` (e.g., `IADC.h`)
-2. Implement stub in `src/hal/` (e.g., `virtual_adc.h/.cpp`)
-3. Register in `hal_manager_stubs.cpp`
-4. Add unit tests in `tests/` with GTest
+1. Create a new interface in `include/hal/`
+   Example: `IADC.h`
+2. Implement the stub in `src/hal/`
+   Example: `virtual_adc.cpp`
+3. Register it in `hal_manager_stubs.cpp`:
+
+   ```cpp
+   HalManager::instance().register_adc(std::make_unique<VirtualADC>());
+   ```
+4. Add a GTest unit in `tests/test_adc.cpp`
+
+---
+
+## 📘 Example Application Flow
+
+```
+main.cpp
+│
+├── sensor_task()      → Produces SensorSample data
+├── processing_task()  → Formats & processes readings
+├── logger_task()      → Logs to console
+└── cli_task()         → Simple CLI interface
+```
+
+Each runs either as:
+
+* **std::thread** (HAL-only mode), or
+* **RTOS::task** (RTOS simulation mode)
+
+---
+
+## 🧰 Example Runtime Output
+
+```
+[CLI] CLI task started...
+[LOG] Sensor ID: 1 Value: 23.45
+[LOG] Sensor ID: 2 Value: 24.02
+[LOG] Sensor ID: 3 Value: 24.10
+[MAIN] Simulation finished.
+```
 
 ---
 
 ## ⚠️ Notes
 
-* RTOS integration is **optional** and can be removed
-* Fully modular: easy to add new drivers/tasks
-* No hardware needed; pure software simulation
-
----
-
-## 🔧 License
-
-MIT License – see [LICENSE](LICENSE)
+* RTOS simulation layer (`rtos_sim.h/.cpp`) is optional — toggle via CMake.
+* All HAL stubs (UART, GPIO) are mockable and testable.
+* ThreadSafeQueue ensures synchronization between all simulated threads.
+* No real hardware interaction occurs — **pure software simulation**.
