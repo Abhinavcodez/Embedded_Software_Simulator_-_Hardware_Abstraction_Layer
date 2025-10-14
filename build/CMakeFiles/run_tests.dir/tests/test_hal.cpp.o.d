@@ -265,9 +265,10 @@ CMakeFiles/run_tests.dir/tests/test_hal.cpp.o: \
  /usr/include/gtest/gtest-test-part.h /usr/include/gtest/gtest_prod.h \
  /usr/include/gtest/gtest-typed-test.h \
  /usr/include/gtest/gtest_pred_impl.h \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/include/hal/hal_uart.h \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/include/drivers/uart_driver.h \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/include/hal/IUart.h \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/include/hal/hal_gpio.h \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/include/drivers/gpio_driver.h \
- /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/hal_mocks.h
+ /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/../include/hal/hal_manager.h \
+ /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/../include/hal/IUart.h \
+ /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/../include/hal/IGpio.h \
+ /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/../include/hal/IGpio.h \
+ /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/../include/hal/IUart.h \
+ /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/../include/hal/virtual_hal_devices.hpp \
+ /usr/include/c++/11/cstring

@@ -10,9 +10,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/app/sensor_task.cpp" "CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.o" "gcc" "CMakeFiles/run_tests.dir/src/app/sensor_task.cpp.o.d"
   "/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/hal_manager_stubs.cpp" "CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.o" "gcc" "CMakeFiles/run_tests.dir/src/hal/hal_manager_stubs.cpp.o.d"
-  "/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/test_drivers.cpp" "CMakeFiles/run_tests.dir/tests/test_drivers.cpp.o" "gcc" "CMakeFiles/run_tests.dir/tests/test_drivers.cpp.o.d"
   "/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/test_hal.cpp" "CMakeFiles/run_tests.dir/tests/test_hal.cpp.o" "gcc" "CMakeFiles/run_tests.dir/tests/test_hal.cpp.o.d"
   "/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/test_integration.cpp" "CMakeFiles/run_tests.dir/tests/test_integration.cpp.o" "gcc" "CMakeFiles/run_tests.dir/tests/test_integration.cpp.o.d"
+  "/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/tests/test_rtos.cpp" "CMakeFiles/run_tests.dir/tests/test_rtos.cpp.o" "gcc" "CMakeFiles/run_tests.dir/tests/test_rtos.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

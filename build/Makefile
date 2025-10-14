@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Sim
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -220,30 +230,6 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/embedded_sim.dir/build.make CMakeFiles/embedded_sim.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-tests/test_drivers.o: tests/test_drivers.cpp.o
-.PHONY : tests/test_drivers.o
-
-# target to build an object file
-tests/test_drivers.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_drivers.cpp.o
-.PHONY : tests/test_drivers.cpp.o
-
-tests/test_drivers.i: tests/test_drivers.cpp.i
-.PHONY : tests/test_drivers.i
-
-# target to preprocess a source file
-tests/test_drivers.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_drivers.cpp.i
-.PHONY : tests/test_drivers.cpp.i
-
-tests/test_drivers.s: tests/test_drivers.cpp.s
-.PHONY : tests/test_drivers.s
-
-# target to generate assembly for a file
-tests/test_drivers.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_drivers.cpp.s
-.PHONY : tests/test_drivers.cpp.s
-
 tests/test_hal.o: tests/test_hal.cpp.o
 .PHONY : tests/test_hal.o
 
@@ -292,6 +278,30 @@ tests/test_integration.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_integration.cpp.s
 .PHONY : tests/test_integration.cpp.s
 
+tests/test_rtos.o: tests/test_rtos.cpp.o
+.PHONY : tests/test_rtos.o
+
+# target to build an object file
+tests/test_rtos.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_rtos.cpp.o
+.PHONY : tests/test_rtos.cpp.o
+
+tests/test_rtos.i: tests/test_rtos.cpp.i
+.PHONY : tests/test_rtos.i
+
+# target to preprocess a source file
+tests/test_rtos.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_rtos.cpp.i
+.PHONY : tests/test_rtos.cpp.i
+
+tests/test_rtos.s: tests/test_rtos.cpp.s
+.PHONY : tests/test_rtos.s
+
+# target to generate assembly for a file
+tests/test_rtos.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_rtos.cpp.s
+.PHONY : tests/test_rtos.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -300,6 +310,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... embedded_sim"
 	@echo "... run_tests"
 	@echo "... src/app/sensor_task.o"
@@ -311,15 +322,15 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... tests/test_drivers.o"
-	@echo "... tests/test_drivers.i"
-	@echo "... tests/test_drivers.s"
 	@echo "... tests/test_hal.o"
 	@echo "... tests/test_hal.i"
 	@echo "... tests/test_hal.s"
 	@echo "... tests/test_integration.o"
 	@echo "... tests/test_integration.i"
 	@echo "... tests/test_integration.s"
+	@echo "... tests/test_rtos.o"
+	@echo "... tests/test_rtos.i"
+	@echo "... tests/test_rtos.s"
 .PHONY : help
 
 

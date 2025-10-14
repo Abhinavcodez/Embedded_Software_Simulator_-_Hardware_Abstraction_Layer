@@ -1,4 +1,4 @@
-#include "hal/hal_gpio.h"
+#include "../../includes/hal/IGpio.h"
 #include <iostream>
 
 class VirtualGPIO : public IGpio {

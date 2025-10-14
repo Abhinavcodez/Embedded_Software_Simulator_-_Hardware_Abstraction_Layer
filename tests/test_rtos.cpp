@@ -1,38 +1,74 @@
 #include <gtest/gtest.h>
-#include "rtos/freertos_sim.h"
-#include "rtos/queues.h"
-#include "rtos/semaphore.h"
+#include "../include/hal/rtos_sim.h"
 #include <atomic>
+#include <chrono>
+#include <iostream>
 
-TEST(RTOS, TaskExecution) {
-    std::atomic<int> counter{0};
-    RTOS::create_task([&] {
-        counter++;
-    }, "TaskA");
-    RTOS::start_scheduler();
-    EXPECT_EQ(counter.load(), 1);
-}
+TEST(RTOS_Sim, BasicTaskExecution) {
+    std::atomic<int> counter(0);
 
-TEST(RTOS, QueueSendReceive) {
-    RTOS::Queue<int> q(5);
-    q.send(42);
-    int val = 0;
-    ASSERT_TRUE(q.receive(val, 100));
-    EXPECT_EQ(val, 42);
-}
-
-TEST(RTOS, SemaphoreControl) {
-    RTOS::Semaphore sem(false);
-    std::atomic<bool> done{false};
-
-    std::thread t([&]() {
-        sem.take();
-        done = true;
+    // Add tasks
+    RTOS::create_task([&counter]() {
+        for (int i = 0; i < 5; ++i) {
+            counter++;
+            RTOS::delay_ms(10);
+        }
     });
 
-    RTOS::delay_ms(100);
-    sem.give();
-    t.join();
+    RTOS::create_task([&counter]() {
+        for (int i = 0; i < 5; ++i) {
+            counter++;
+            RTOS::delay_ms(15);
+        }
+    });
 
-    EXPECT_TRUE(done);
+    // Start scheduler (detached threads)
+    RTOS::start_scheduler();
+
+    // Wait long enough for tasks to finish deterministically
+    RTOS::delay_ms(200);
+
+    EXPECT_EQ(counter.load(), 10);
+}
+
+TEST(RTOS_Sim, DelayFunction) {
+    auto start = std::chrono::high_resolution_clock::now();
+    RTOS::delay_ms(50);
+    auto end = std::chrono::high_resolution_clock::now();
+
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    EXPECT_GE(duration, 50);
+}
+
+// Optional: deterministic join test version
+TEST(RTOS_Sim, DeterministicJoin) {
+    std::atomic<int> counter(0);
+
+    std::vector<std::thread> local_tasks;
+
+    local_tasks.emplace_back([&counter]() {
+        for (int i = 0; i < 5; ++i) {
+            counter++;
+            RTOS::delay_ms(10);
+        }
+    });
+
+    local_tasks.emplace_back([&counter]() {
+        for (int i = 0; i < 5; ++i) {
+            counter++;
+            RTOS::delay_ms(15);
+        }
+    });
+
+    // Join threads deterministically
+    for (auto& t : local_tasks) {
+        if (t.joinable()) t.join();
+    }
+
+    EXPECT_EQ(counter.load(), 10);
+}
+
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }

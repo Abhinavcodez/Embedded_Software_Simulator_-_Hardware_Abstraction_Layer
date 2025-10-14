@@ -1,4 +1,5 @@
 /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles/embedded_sim.dir
 /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles/run_tests.dir
+/home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles/test.dir
 /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles/edit_cache.dir
 /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/build/CMakeFiles/rebuild_cache.dir

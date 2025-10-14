@@ -118,7 +118,6 @@ CMakeFiles/embedded_sim.dir/src/hal/hal_manager_stubs.cpp.o: \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
  /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/../../include/hal/IUart.h \
- /usr/include/c++/11/cstddef \
  /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/../../include/hal/IGpio.h \
  /home/chilgoja/Desktop/Embedded_Project/Embedded_Software_Simulator_-_Hardware_Abstraction_Layer/src/hal/../../include/hal/virtual_uart.h \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_vector.h \

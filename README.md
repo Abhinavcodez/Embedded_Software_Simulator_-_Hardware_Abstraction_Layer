@@ -6,14 +6,15 @@
 
 ## 📌 Project Overview
 
-The **Embedded Software Simulator – Hardware Abstraction Layer (HAL)** is a software-only simulation framework designed for embedded systems development. It provides a virtualized environment to test and develop embedded applications without the need for physical hardware. This approach is particularly useful for early-stage development, unit testing, and educational purposes.
+The **Embedded Software Simulator – HAL** is a software-only simulation framework for embedded systems development. It enables virtual testing of applications and hardware abstraction layers without the need for real hardware. Ideal for early-stage development, testing, and educational purposes.
 
 **Key Features:**
 
-* **Virtual Peripherals:** Simulate hardware components like UART, GPIO, and timers.
-* **Modular HAL:** Easily extendable to add new virtual peripherals.
-* **RTOS Simulation:** Optionally simulate real-time operating system tasks and scheduling.
-* **Unit & Integration Testing:** Built-in support for testing application logic and HAL interactions.
+* **Virtual Peripherals:** UART, GPIO, timers, and more.
+* **Modular HAL:** Easily extendable to add new peripherals.
+* **RTOS Simulation:** Software-only task scheduling, delays, and concurrency.
+* **Unit & Integration Testing:** Full support using Google Test.
+* **System Simulation:** Run main application with virtual sensors and logging.
 
 ---
 
@@ -22,14 +23,13 @@ The **Embedded Software Simulator – Hardware Abstraction Layer (HAL)** is a so
 ```
 Embedded_Software_Simulator_-_HAL/
 ├── include/
-│   ├── hal/             # HAL interfaces (IUart.h, IGpio.h, HAL Manager)
+│   ├── hal/             # HAL interfaces & virtual peripherals (IUart.h, IGpio.h, rtos_sim.h)
 │   ├── app/             # Application headers (sensor tasks, queues)
-│   └── utils/           # Utilities
+│   └── utils/           # Utility headers
 ├── src/
-│   ├── hal/             # HAL stubs & virtual drivers
-│   ├── app/             # Application logic
-│   └── rtos/            # Optional RTOS stubs (can be removed)
-├── tests/               # Google Test unit tests
+│   ├── hal/             # HAL stubs & virtual drivers (hal_manager_stubs.cpp, virtual devices)
+│   ├── app/             # Application logic (sensor_task.cpp, CLI)
+├── tests/               # Google Test unit & integration tests (HAL + RTOS)
 ├── CMakeLists.txt       # Build configuration
 └── README.md            # Project documentation
 ```
@@ -42,7 +42,7 @@ Embedded_Software_Simulator_-_HAL/
 * **CMake >= 3.10**
 * **Google Test (GTest)**
 
-To install GTest on Ubuntu:
+**Install GTest on Ubuntu:**
 
 ```bash
 sudo apt update
@@ -67,8 +67,8 @@ make -j$(nproc)
 
 **Executables:**
 
-* `embedded_sim` → Runs the main application simulation
-* `run_tests` → Runs all unit and integration tests
+* `embedded_sim` → Run the main application simulation with virtual sensors and CLI.
+* `run_tests` → Run all unit and integration tests including RTOS simulation.
 
 ---
 
@@ -81,40 +81,50 @@ make -j$(nproc)
 **Example Output:**
 
 ```
-[==========] Running 8 tests from 6 test suites.
-[ RUN      ] HAL_UART.SendReceive
-[Mock HAL] UART_Init called for port: test_uart.txt
-[Mock HAL] UART_Send called with length: 2
-[       OK ] HAL_UART.SendReceive
-[ RUN      ] HAL_GPIO.PinWriteRead
-[Mock HAL] GPIO pin 3 written HIGH
-[Mock HAL] GPIO pin 3 read HIGH
-[       OK ] HAL_GPIO.PinWriteRead
-...
-[==========] 8 tests from 6 test suites ran. (0 ms total)
+[==========] Running 6 tests from 4 test suites.
+[ RUN      ] HAL_UART_SendReceive_Test.BasicEcho
+[VirtualUART] TX: Hello
+[VirtualUART] RX: Echo:Hello
+[       OK ] HAL_UART_SendReceive_Test.BasicEcho
+[ RUN      ] HAL_GPIO_PinWriteRead_Test.WriteRead
+[VirtualGPIO] Pin 1 = HIGH
+[       OK ] HAL_GPIO_PinWriteRead_Test.WriteRead
+[ RUN      ] RTOS_Sim.BasicTaskExecution
+[       OK ] RTOS_Sim.BasicTaskExecution
+[ RUN      ] RTOS_Sim.DelayFunction
+[       OK ] RTOS_Sim.DelayFunction
+[==========] 6 tests from 4 test suites ran. (378 ms total)
+[  PASSED  ] 6 tests.
 ```
 
-> ⚠ Segmentation faults usually indicate missing virtual peripheral mocks or test misconfigurations.
+> ⚠ Segmentation faults usually indicate missing virtual peripheral mocks or incorrect test configuration.
 
 ---
 
 ## 📝 Adding New Virtual Peripherals
 
-1. Create an interface in `include/hal/` (e.g., `IADC.h`)
-2. Implement stub in `src/hal/` (e.g., `virtual_adc.h/.cpp`)
-3. Register in `hal_manager_stubs.cpp`
-4. Add unit tests in `tests/` with GTest
+1. Create an interface in `include/hal/` (e.g., `IADC.h`).
+2. Implement the stub in `src/hal/` (e.g., `virtual_adc.h/.cpp`).
+3. Register it in `hal_manager_stubs.cpp`.
+4. Add unit tests in `tests/` using Google Test.
+
+---
+
+## 🛠 RTOS Simulation
+
+* Implemented in `include/hal/rtos_sim.h`.
+* Supports:
+
+  * `RTOS::create_task(function<void()>)`
+  * `RTOS::start_scheduler()`
+  * `RTOS::delay_ms(int ms)`
+* Fully software-based and optional—can be removed if hardware-only HAL is desired.
+* Tested via `tests/test_rtos.cpp`.
 
 ---
 
 ## ⚠ Notes
 
-* RTOS integration is **optional** and can be removed
-* Fully modular: easy to add new drivers/tasks
-* No hardware needed; pure software simulation
-
----
-
-## 🔧 License
-
-MIT License – see [LICENSE](LICENSE)
+* Fully modular: easy to add new drivers/tasks.
+* No physical hardware required; pure software simulation.
+* RTOS simulation is deterministic in tests for repeatable unit testing.
